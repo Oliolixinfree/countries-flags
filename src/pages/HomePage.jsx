@@ -17,13 +17,14 @@ export const HomePage = ({countries, setCountries}) => {
         }
 
         if (search) {
-            data = data.filter(c => c.name.common.toLowerCase().includes(search.toLowerCase()))
+            data = data.filter(c => c.name.toLowerCase().includes(search.toLowerCase()))
         }
 
         setFiltredCountries(data)
     }
 
     const navigate = useNavigate() 
+
 	// async await????
 	useEffect(() => {
         if(!countries.length)
@@ -44,8 +45,8 @@ export const HomePage = ({countries, setCountries}) => {
             <List>
                 {filtredCountries.map(c => {
                     const countryInfo ={
-                        img: c.flags.png,
-                        name: c.name.common,
+                        img: c.flags.svg,
+                        name: c.name,
                         code: c.code,
                         info: [
                             {
@@ -64,9 +65,9 @@ export const HomePage = ({countries, setCountries}) => {
                     }
                     return (
                         <Card 
-                            key={c.name.common}
+                            key={c.name}
                             {...countryInfo}
-                            onClick={() => navigate(`/country/${c.name.common}`)}
+                            onClick={() => navigate(`/country/${c.name}`)}
                         />
                     )
                 })}
