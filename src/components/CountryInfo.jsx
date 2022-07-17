@@ -151,7 +151,7 @@ export const CountryInfo = (props) => {
                     <ListItem>
                         <b>Languages:</b>{' '}
                         {languages.map((l) => (
-                            <span key={l.name}>{l.name}</span>
+                            <span key={l.name}>{l.name + ' '}</span>
                         ))}
                     </ListItem>
                     <ListItem>
