@@ -98,6 +98,7 @@ export const CountryInfo = (props) => {
         currencies = [],
         languages = [],
         borders = [],
+        independent,
     } = props
 
     const navigate = useNavigate()
@@ -115,7 +116,7 @@ export const CountryInfo = (props) => {
         <InfoImage src={flags.svg} alt={name} />
 
         <div>
-            <InfoTitle>{name.common}</InfoTitle>
+            <InfoTitle>{name}</InfoTitle>
             <ListGroup>
                 <List>
                     <ListItem>
@@ -150,8 +151,12 @@ export const CountryInfo = (props) => {
                     <ListItem>
                         <b>Languages:</b>{' '}
                         {languages.map((l) => (
-                            <span key={l.name}>{l.name + ' '}</span>
+                            <span key={l.name}>{l.name}</span>
                         ))}
+                    </ListItem>
+                    <ListItem>
+                        <b>Independence:</b>{' '}
+                        {independent ? <span>Yes</span> : <span>No</span>}
                     </ListItem>
                 </List>
             </ListGroup>
